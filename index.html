@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Library</title>
+</head>
+<body>
+
+<h1>Library</h1>
+
+<form action="/add" method="post">
+  <fieldset>
+    <legend>Add a book</legend>
+    <input name="title" placeholder="Book title" required>
+    <input name="author" placeholder="Author" required>
+    <button type="submit">Add book</button>
+  </fieldset>
+</form>
+
+<form action="/search" method="get">
+  <fieldset>
+    <legend>Find a book</legend>
+    <input type="search" name="q" placeholder="Title or author">
+    <select name="status">
+      <option value="all">All books</option>
+      <option value="in">Available</option>
+      <option value="out">Checked out</option>
+    </select>
+    <button type="submit">Search</button>
+  </fieldset>
+</form>
+
+<table>
+  <thead>
+    <tr><th>Title</th><th>Author</th><th>Status</th><th>Action</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pride and Prejudice</td>
+      <td>Jane Austen</td>
+      <td class="in">Available</td>
+      <td>
+        <form action="/checkout/1" method="post">
+          <input name="borrower" placeholder="Borrower name" required>
+          <button type="submit">Check out</button>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Frankenstein</td>
+      <td>Mary Shelley</td>
+      <td class="out">Checked out to Sam</td>
+      <td>
+        <form action="/return/2" method="post">
+          <button type="submit">Return</button>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>Dracula</td>
+      <td>Bram Stoker</td>
+      <td class="in">Available</td>
+      <td>
+        <form action="/checkout/3" method="post">
+          <input name="borrower" placeholder="Borrower name" required>
+          <button type="submit">Check out</button>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
